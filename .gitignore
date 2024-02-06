@@ -9,6 +9,9 @@
 # testing
 /coverage
 
+# test mockup data
+/src/lib/data.ts
+
 # next.js
 /.next/
 /out/
