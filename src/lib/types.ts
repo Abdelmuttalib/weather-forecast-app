@@ -60,8 +60,8 @@ export interface WeatherForecast {
     Severity: number;
     Text: string;
     Category: string;
-    EndDate: string;
-    EndEpochDate: number;
+    EndDate: string | null;
+    EndEpochDate: number | null;
     MobileLink: string;
     Link: string;
   };
@@ -140,12 +140,14 @@ export interface WeatherForecast {
       Value: number;
       Category: string;
       CategoryValue: number;
-      Type: string;
+      Type?: string;
     }[];
     Day: {
       Icon: number;
       IconPhrase: string;
       HasPrecipitation: boolean;
+      PrecipitationType?: string;
+      PrecipitationIntensity?: string;
       ShortPhrase: string;
       LongPhrase: string;
       PrecipitationProbability: number;

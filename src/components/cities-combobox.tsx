@@ -52,7 +52,7 @@ export default function CitiesCombobox({
             leaveTo="opacity-0"
             afterLeave={() => setQuery("")}
           >
-            <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none">
+            <Combobox.Options className="absolute mt-1 max-h-80 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none">
               {filteredCities.length === 0 && query !== "" ? (
                 <div className="relative cursor-default select-none px-4 py-2 text-gray-700">
                   Nothing found.
@@ -62,8 +62,8 @@ export default function CitiesCombobox({
                   <Combobox.Option
                     key={city.value}
                     className={({ active }) =>
-                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                        active ? "bg-teal-600 text-white" : "text-gray-900"
+                      `relative cursor-default select-none py-3 pl-10 pr-4 ${
+                        active ? "bg-gray-200 text-gray-900" : "text-gray-900"
                       }`
                     }
                     value={city}

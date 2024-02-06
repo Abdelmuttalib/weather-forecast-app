@@ -7,19 +7,25 @@ import {
   CardContent,
   Card,
 } from "@/components/ui/card";
+import { CalendarIcon } from "@/pages";
 
 export function ForecastCard() {
   return (
-    <Card className="w-full max-w-md">
-      <CardHeader className="flex items-center gap-4">
-        <CloudSunIcon className="h-8 w-8 text-yellow-500" />
-        <div className="grid gap-1">
-          <CardTitle className="text-lg">San Francisco</CardTitle>
-          <CardDescription className="text-sm text-gray-500 dark:text-gray-400">
-            Sunny
-          </CardDescription>
+    <Card className="w-full max-w-md rounded-lg">
+      <CardHeader className="w-full flex flex-row items-center justify-between bg-red-300 px-5 py-3 text-gray-700 border-b uppercase text-sm font-medium">
+        <p>New York</p>
+        <div className="flex items-center gap-x-2 text-gray-500">
+          <CalendarIcon className="h-4 w-4" />
+          <p>11:35 PM</p>
         </div>
       </CardHeader>
+
+      <div className="grid gap-1">
+        <CardTitle className="text-lg">San Francisco</CardTitle>
+        <CardDescription className="text-sm text-gray-500 dark:text-gray-400">
+          Sunny
+        </CardDescription>
+      </div>
       <CardContent className="grid gap-4">
         <div className="flex items-center gap-4">
           <ThermometerIcon className="h-6 w-6 text-gray-500 dark:text-gray-400" />

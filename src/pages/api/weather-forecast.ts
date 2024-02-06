@@ -12,9 +12,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const cityKey = req.query.city as string;
+  const cityKey = req.query.cityKey as string;
 
   const weatherForecastData = await getWeatherForecastData(cityKey);
-
-  res.status(200).json({ city: `Hello ${cityKey}`, data: weatherForecastData });
+  res.status(200).json({ ...weatherForecastData, city: cityKey });
 }
