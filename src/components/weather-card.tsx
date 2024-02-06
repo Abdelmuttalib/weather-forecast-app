@@ -22,25 +22,25 @@ export default function WeatherCard({ data, location }: WeatherCardProps) {
   const temperature = Math.round(Temperature.Maximum.Value);
 
   return (
-    <div className="flex border flex-col w-full max-w-xl mx-auto rounded-lg h-72 bg-white">
-      <div className="w-full flex items-center justify-between px-5 py-3 text-gray-700 border-b uppercase text-sm font-medium">
+    <div className="flex border flex-col w-full max-w-xl mx-auto rounded-lg sm:h-72 bg-white">
+      <div className="w-full flex items-start sm:items-center gap-y-1 sm:gap-y-0 flex-col sm:flex-row sm:justify-between px-5 py-3 text-gray-700 border-b uppercase text-xs sm:text-sm font-medium">
         <p>{location} - Today</p>
         <div className="flex items-center gap-x-2 text-gray-500">
           <CalendarIcon className="h-[19px] w-[19px] mt-0.5" />
           <p>{date}</p>
         </div>
       </div>
-      <div className="w-full h-full flex gap-x-4 px-5 py-3">
+      <div className="w-full h-full flex flex-col sm:flex-row gap-y-8 sm:gap-y-0 gap-x-4 px-5 py-3">
         {/* main */}
         <div className="justify-center items-center w-full h-full flex flex-col gap-y-2">
           <div className="flex items-end">
-            <h2 className="text-8xl tracking-tight font-semibold">
+            <h2 className="text-6xl sm:text-8xl tracking-tight font-semibold">
               {temperature}°
             </h2>
-            <p className="text-lg font-semibold text-gray-600">C</p>
+            <p className="sm:text-lg font-semibold text-gray-600">C</p>
           </div>
           <div className="w-full flex justify-center flex-col gap-y-2 items-center text-left">
-            <p className="font-medium text-gray-900">
+            <p className="text-sm sm:text-base font-medium text-gray-900">
               {/* Use the Day.IconPhrase here */}
               {Day.IconPhrase}
             </p>
@@ -51,7 +51,7 @@ export default function WeatherCard({ data, location }: WeatherCardProps) {
         </div>
 
         {/* details */}
-        <div className="flex flex-col h-full gap-y-4 w-full max-w-[40%]">
+        <div className="flex flex-col h-full gap-y-4 w-full sm:max-w-[40%]">
           <div className="flex flex-col justify-evenly h-full gap-y-2 w-full">
             <div className="flex items-center gap-4">
               <div className="p-2 bg-gray-200/60 rounded-md">
@@ -107,8 +107,8 @@ export function MiniWeatherCard({ data, location }: WeatherCardProps) {
   const temperature = Math.round(Temperature.Maximum.Value);
 
   return (
-    <div className="flex border flex-col w-full max-w-xl mx-auto rounded-lg h-44 bg-white">
-      <div className="w-full flex items-center justify-between px-5 py-3 text-gray-700 border-b uppercase text-sm font-medium">
+    <div className="flex border flex-col w-full max-w-xl mx-auto rounded-lg sm:h-44 bg-white">
+      <div className="w-full flex flex-col sm:flex-row items-start gap-y-1 sm:gap-y-1 sm:items-center justify-between px-5 py-3 text-gray-700 border-b uppercase text-xs sm:text-sm font-medium">
         <p>{location}</p>
         <div className="flex items-center gap-x-2 text-gray-500">
           <CalendarIcon className="h-4 w-4" />
@@ -136,8 +136,8 @@ export function MiniWeatherCard({ data, location }: WeatherCardProps) {
         </div>
 
         {/* details */}
-        <div className="flex flex-col h-full gap-y-4 w-full">
-          <div className="flex justify-evenly h-full gap-y-2 w-full">
+        <div className="flex flex-col h-full gap-y-4 sm:w-full">
+          <div className="flex sm:justify-evenly flex-col sm:flex-row h-full gap-y-2 w-full">
             <div className="flex items-center gap-4">
               <div className="p-2 bg-gray-200/60 rounded-md">
                 <WindIcon className="h-[18px] w-[18px] text-gray-500" />
@@ -178,7 +178,7 @@ export function MiniWeatherCard({ data, location }: WeatherCardProps) {
 
 export function WeatherCardLoaderUI() {
   return (
-    <div className="flex border flex-col w-full max-w-xl mx-auto rounded-lg h-72 bg-white">
+    <div className="flex border flex-col w-full max-w-xl mx-auto rounded-lg sm:h-72 bg-white">
       <div className="w-full flex items-center justify-between px-5 py-3 text-gray-700 border-b uppercase text-sm font-medium">
         <div>
           <Skeleton className="w-20 h-7" />
@@ -189,7 +189,7 @@ export function WeatherCardLoaderUI() {
           <Skeleton className="w-20 h-6" />
         </div>
       </div>
-      <div className="w-full h-full flex gap-x-4 px-5 py-3">
+      <div className="w-full h-full flex flex-col gap-y-8 sm:gap-y-0 sm:flex-row gap-x-4 px-5 py-3">
         {/* main */}
         <div className="justify-center items-center w-full h-full flex flex-col gap-y-2">
           <div className="flex items-end">
@@ -253,7 +253,7 @@ export function WeatherCardLoaderUI() {
 
 export function MiniWeatherCardLoaderUI() {
   return (
-    <div className="flex border flex-col w-full max-w-xl mx-auto rounded-lg h-44 bg-white">
+    <div className="flex border flex-col w-full max-w-xl mx-auto rounded-lg sm:h-44 bg-white">
       <div className="w-full flex items-center justify-between px-5 py-3 text-gray-700 border-b uppercase text-sm font-medium">
         <Skeleton className="w-20 h-7" />
         <div className="flex items-center gap-x-2 text-gray-500">
@@ -262,9 +262,9 @@ export function MiniWeatherCardLoaderUI() {
           <Skeleton className="w-20 h-6" />
         </div>
       </div>
-      <div className="w-full h-full flex gap-x-4 px-5 py-3">
+      <div className="w-full h-full flex gap-y-6 sm:gap-y-0 flex-col sm:flex-row gap-x-4 px-5 py-3">
         {/* main */}
-        <div className="justify-center h-full flex flex-col">
+        <div className="justify-center h-full flex flex-col items-center sm:items-baseline">
           <div className="flex items-end">
             <Skeleton className="w-20 h-16" />
           </div>
@@ -278,7 +278,7 @@ export function MiniWeatherCardLoaderUI() {
 
         {/* details */}
         <div className="flex flex-col h-full gap-y-4 w-full">
-          <div className="flex justify-evenly h-full gap-y-2 w-full">
+          <div className="flex flex-col sm:flex-row justify-evenly h-full gap-y-2 w-full">
             <div className="flex items-center gap-4">
               <div className="p-2 bg-gray-200/60 rounded-md">
                 <Skeleton className="h-[18px] w-[18px] text-gray-500" />

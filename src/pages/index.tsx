@@ -31,8 +31,8 @@ export default function Home({
     );
 
   return (
-    <div className="w-full h-full min-h-screen">
-      <div className="w-full h-[28rem] relative">
+    <div className={`w-full h-full min-h-screen ${inter.className}`}>
+      <div className="w-full h-[19rem] sm:h-[28rem] relative">
         <Image
           // src="https://images.unsplash.com/photo-1563669172719-6d3fffd82e36?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           src="https://images.pexels.com/photos/3497624/pexels-photo-3497624.jpeg"
@@ -45,8 +45,8 @@ export default function Home({
           loading="eager"
         />
         {/* search box */}
-        <div className="w-full h-full absolute z-50 flex items-center justify-center">
-          <div className="mx-auto w-full max-w-xl z-50">
+        <div className="w-full h-full absolute z-50 flex p-6 sm:p-0 items-center justify-center">
+          <div className="mx-auto w-full sm:max-w-xl z-50">
             <CitiesCombobox
               cities={locations.map((location) => ({
                 label: location.LocalizedName,
@@ -58,9 +58,7 @@ export default function Home({
           </div>
         </div>
       </div>
-      <main
-        className={`flex min-h-screen bg-gray-100 flex-col items-center justify-between p-24 ${inter.className}`}
-      >
+      <main className="flex min-h-screen w-full bg-gray-100 flex-col items-center justify-between p-6 md:p-24">
         <div className="w-full grid grid-cols-1 gap-y-14">
           {/* Today Weather Forecast */}
           {isLoadingWeatherForecast && (
