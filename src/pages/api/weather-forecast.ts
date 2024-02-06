@@ -10,10 +10,27 @@ type Data = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data | { error: string }>
 ) {
-  const cityKey = req.query.cityKey as string;
+  try {
+    if (req.method !== "GET") {
+      throw new Error("Method Not Allowed");
+    }
 
-  const weatherForecastData = await getWeatherForecastData(cityKey);
-  res.status(200).json({ ...weatherForecastData, city: cityKey });
+    const cityKey = req.query.cityKey as string;
+
+    if (!cityKey) {
+      throw new Error("City key is required");
+    }
+
+    const weatherForecastData = await getWeatherForecastData(cityKey);
+
+    if (!weatherForecastData) {
+      throw new Error("Weather forecast data not found");
+    }
+
+    res.status(200).json({ ...weatherForecastData, city: cityKey });
+  } catch {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 }
